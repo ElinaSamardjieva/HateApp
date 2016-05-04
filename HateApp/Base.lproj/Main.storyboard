@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3Wd-bR-bsv">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hate View Controller-->
+        <scene sceneID="Qp0-ga-LMy">
+            <objects>
+                <viewController storyboardIdentifier="HateViewController" id="v0V-qw-Y1Z" customClass="HateViewController" customModule="HateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zRc-43-jNV"/>
+                        <viewControllerLayoutGuide type="bottom" id="rjL-Mf-7y2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rfJ-pu-J9n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vU2-L0-8BP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-581" y="351"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BT4-a5-Xip">
+                                <rect key="frame" x="203" y="459" width="194" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="RpC-dg-8ne"/>
+                                    <constraint firstAttribute="width" constant="194" id="pqN-X8-M6s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Hate!"/>
+                                <connections>
+                                    <action selector="hateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zyw-Hc-cCf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-TQ-iwZ">
+                                <rect key="frame" x="483" y="78" width="105" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="0No-Md-k4p"/>
+                                    <constraint firstAttribute="width" constant="105" id="1wL-D0-kNO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Admin"/>
+                                <connections>
+                                    <action selector="adminButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yTM-MH-Lf4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BT4-a5-Xip" secondAttribute="bottom" constant="69" id="4Xl-zS-N3q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sAd-TQ-iwZ" secondAttribute="trailing" constant="-8" id="JxS-3a-3D5"/>
+                            <constraint firstItem="BT4-a5-Xip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fHW-Mv-Oxp"/>
+                            <constraint firstItem="sAd-TQ-iwZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="rjs-sD-guS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PuD-np-6E1"/>
+                    <connections>
+                        <outlet property="adminButton" destination="sAd-TQ-iwZ" id="HDi-x1-A60"/>
+                        <outlet property="hateButton" destination="BT4-a5-Xip" id="f4f-xi-wGh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="351"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BcS-H8-ZGw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Wd-bR-bsv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ezw-eK-WG0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VZM-5Y-Oed"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVE-L8-gy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="351"/>
+        </scene>
+        <!--Admin View Controller-->
+        <scene sceneID="W5z-Xa-Vbt">
+            <objects>
+                <viewController storyboardIdentifier="AdminViewController" id="JgK-Cl-4P2" customClass="AdminViewController" customModule="HateApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xwU-XM-z6b"/>
+                        <viewControllerLayoutGuide type="bottom" id="R1h-m7-VbV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rxp-Z4-dqU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All haters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKV-xb-MvW">
+                                <rect key="frame" x="233" y="88" width="135" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="68p-LO-5Mq"/>
+                                    <constraint firstAttribute="height" constant="39" id="urH-o3-cUt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Sl-ZM-Pce">
+                                <rect key="frame" x="151" y="196" width="299" height="186"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="186" id="Dlp-Mo-yOM"/>
+                                    <constraint firstAttribute="width" constant="299" id="M7A-Ka-SBv"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="186" id="k5f-gp-Zvh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Dlp-Mo-yOM"/>
+                                        <exclude reference="M7A-Ka-SBv"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="JgK-Cl-4P2" id="xl8-AY-LeC"/>
+                                    <outlet property="delegate" destination="JgK-Cl-4P2" id="h2h-MC-ymK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eKV-xb-MvW" firstAttribute="centerX" secondItem="rxp-Z4-dqU" secondAttribute="centerX" id="6ad-9T-bd9"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="top" secondItem="eKV-xb-MvW" secondAttribute="bottom" constant="69" id="C4y-5K-9P1"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="centerX" secondItem="rxp-Z4-dqU" secondAttribute="centerX" id="EF5-On-pYB"/>
+                            <constraint firstItem="eKV-xb-MvW" firstAttribute="top" secondItem="xwU-XM-z6b" secondAttribute="bottom" constant="24" id="LfH-ny-tSm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Sl-ZM-Pce" secondAttribute="trailing" constant="130" id="McF-ME-Bjc"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="leading" secondItem="rxp-Z4-dqU" secondAttribute="leadingMargin" constant="131" id="NAy-xW-rOI"/>
+                            <constraint firstItem="R1h-m7-VbV" firstAttribute="top" secondItem="2Sl-ZM-Pce" secondAttribute="bottom" constant="279" id="Puz-us-y19"/>
+                            <constraint firstItem="R1h-m7-VbV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2Sl-ZM-Pce" secondAttribute="bottom" constant="218" id="eUe-Qo-Paa"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="leading" secondItem="rxp-Z4-dqU" secondAttribute="leadingMargin" constant="131" id="fcE-2n-Cee"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="top" secondItem="xwU-XM-z6b" secondAttribute="bottom" constant="71" id="jyz-Qu-XHq"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="top" secondItem="xwU-XM-z6b" secondAttribute="bottom" constant="132" id="lA2-yI-0Pn"/>
+                            <constraint firstItem="2Sl-ZM-Pce" firstAttribute="centerX" secondItem="rxp-Z4-dqU" secondAttribute="centerX" id="lH3-cS-odQ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="McF-ME-Bjc"/>
+                                <exclude reference="NAy-xW-rOI"/>
+                                <exclude reference="jyz-Qu-XHq"/>
+                                <exclude reference="lA2-yI-0Pn"/>
+                                <exclude reference="lH3-cS-odQ"/>
+                                <exclude reference="Puz-us-y19"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="uQj-fT-whX">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="4TA-OP-HD0">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="JgK-Cl-4P2" id="nsY-kb-MOU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="usersTableView" destination="2Sl-ZM-Pce" id="pib-qp-WnH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkr-si-WNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="1033"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vvU-YI-syO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4rn-rp-e20" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sdm-aJ-tr8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JgK-Cl-4P2" kind="relationship" relationship="rootViewController" id="o4P-qS-uhF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5HD-tm-FFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="1033"/>
+        </scene>
+    </scenes>
+</document>
