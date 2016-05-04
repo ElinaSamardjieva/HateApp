@@ -73,6 +73,7 @@
                     <connections>
                         <outlet property="adminButton" destination="sAd-TQ-iwZ" id="HDi-x1-A60"/>
                         <outlet property="hateButton" destination="BT4-a5-Xip" id="f4f-xi-wGh"/>
+                        <segue destination="JgK-Cl-4P2" kind="show" id="x0h-G6-Yef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -179,24 +180,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkr-si-WNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1967" y="1033"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="vvU-YI-syO">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4rn-rp-e20" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sdm-aJ-tr8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JgK-Cl-4P2" kind="relationship" relationship="rootViewController" id="o4P-qS-uhF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5HD-tm-FFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1155" y="1033"/>
         </scene>
     </scenes>
 </document>

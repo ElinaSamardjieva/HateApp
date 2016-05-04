@@ -23,6 +23,7 @@ class AddNewUserPopUpView: UIView {
     @IBOutlet var confirmPasswordTextField: UITextField!
     
     @IBOutlet var alertMessageLabel: UILabel!
+    @IBOutlet var registerButton: UIButton!
     
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     
@@ -34,6 +35,12 @@ class AddNewUserPopUpView: UIView {
         NSBundle.mainBundle().loadNibNamed("AddNewUserPopUpView", owner: self, options: nil)
         popUpView.layer.cornerRadius = 30
         addSubview(contentView)
+        
+        registerButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        registerButton.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
+        registerButton.layer.cornerRadius = 20
+        registerButton.layer.borderWidth = 2
+        registerButton.layer.borderColor = UIColor(white: 0.5, alpha: 0.4).CGColor
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hide")
         blurEffectView.addGestureRecognizer(tap)

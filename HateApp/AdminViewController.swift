@@ -12,48 +12,47 @@ import CoreData
 class AdminViewController: UIViewController, UITableViewDataSource, AddNewUserPopUpViewDelegate {
 
     @IBOutlet var usersTableView: UITableView!
-       
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         print("View did appear called")
-
         self.view.layoutIfNeeded()
         usersTableView.dataSource = self
-        usersTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        print("View did load")
+        usersTableView.registerNib(UINib(nibName: "HatersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         usersTableView.separatorStyle = .None
     
         backgroundImageFillScren()
         
 //        deleteAllData("User")
-        
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        print("View will appear called")
-
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        
-        do {
-            let results =
-                try managedContext.executeFetchRequest(fetchRequest)
-            
-            DataManager.sharedManager.users = results as! [User]
-            
-            print("Users ---->")
-            for user in DataManager.sharedManager.users {
-                
-                print(user.name)
-            }
-        } catch let error as NSError {
-            print("Error")
-        }
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        print("View will appear called")
+//
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let managedContext = appDelegate.managedObjectContext
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "User")
+//        
+//        do {
+//            let results =
+//                try managedContext.executeFetchRequest(fetchRequest)
+//            
+//            DataManager.sharedManager.users = results as! [User]
+//            
+//           // print("Users ---->")
+////            for user in DataManager.sharedManager.users {
+////                
+////                print(user.name)
+////            }
+//        } catch let error as NSError {
+//            print("Error")
+//        }
+//    }
+    
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         let addPopUp = AddNewUserPopUpView.init(frame: UIScreen.mainScreen().bounds)
@@ -91,6 +90,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, AddNewUserPo
         else {
             saveUser(sender.haterNameTextField.text!, password: sender.passwordTextField.text!)
             usersTableView.reloadData()
+            sender.hide()
         }
     }
     
@@ -125,12 +125,16 @@ class AdminViewController: UIViewController, UITableViewDataSource, AddNewUserPo
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = usersTableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
+        var cell = usersTableView.dequeueReusableCellWithIdentifier("Cell") as! HatersTableViewCell!
+        
+        if cell ==  nil {
+            usersTableView.registerNib(UINib(nibName: "HatersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+            cell = usersTableView.dequeueReusableCellWithIdentifier("Cell") as! HatersTableViewCell!
+        }
         
         cell.selectionStyle = .None
         cell.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
-    
-        cell.textLabel!.text = DataManager.sharedManager.users[indexPath.row].name
+        cell.hatersNameLabel.text = DataManager.sharedManager.users[indexPath.row].name
         
         return cell
     }

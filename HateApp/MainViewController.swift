@@ -34,29 +34,29 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//                print("HERE")
-//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                let managedContext = appDelegate.managedObjectContext
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "User")
-//        
-//                do {
-//                    let results =
-//                        try managedContext.executeFetchRequest(fetchRequest)
-//        
-//                    DataManager.sharedManager.users = results as! [User]
-//        
-//                    print("Users ---->")
-//                    for user in DataManager.sharedManager.users {
-//        
-//                        print(user.name)
-//                    }
-//                } catch let error as NSError {
-//                    print("Error")
-//                }
-//    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+                print("HERE")
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        
+                do {
+                    let results =
+                        try managedContext.executeFetchRequest(fetchRequest)
+        
+                    DataManager.sharedManager.users = results as! [User]
+        
+                    print("Users ---->")
+                    for user in DataManager.sharedManager.users {
+        
+                        print(user.name)
+                    }
+                } catch let error as NSError {
+                    print("Error")
+                }
+    }
     
 //    override func viewWillAppear(animated: Bool) {
 //        super.viewWillAppear(animated)
@@ -111,7 +111,33 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
     
     func authenticatePopUpViewDidPressedButton(sender: AuthenticatePopUpView) {
         
+        
+        // HERE 
+        
+        print(sender.passwordTextField.text)
+        var usersPaswword = ""
+        
+        if sender.currentUser == nil {
+            sender.currentUser = DataManager.sharedManager.users[0].name
+        }
+        
+        print(sender.currentUser)
+        
+        var myCurrentRow = sender.currentRow
+        
+        if myCurrentRow == nil {
+            usersPaswword = DataManager.sharedManager.users[0].password!
+        }
+        
+        usersPaswword = DataManager.sharedManager.users[myCurrentRow].password!
+        print(usersPaswword)
+        
+        if sender.passwordTextField.text == usersPaswword {
         let mapViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("HateViewController") as? HateViewController
         self.navigationController?.pushViewController(mapViewControllerObj!, animated: true)
+        } else {
+           // sender.heightConstraint.constant = 30
+            sender.alertMessageLabel.text = "The password does not match. Please, try again."
+        }
     }
 }

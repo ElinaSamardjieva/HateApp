@@ -18,10 +18,16 @@ class AuthenticatePopUpView: UIView, UIPickerViewDataSource,UIPickerViewDelegate
     @IBOutlet var popUpView: UIView!
     @IBOutlet var blurEffectView: UIVisualEffectView!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var alertMessageLabel: UILabel!
+    @IBOutlet var heightConstraint: NSLayoutConstraint!
     
     @IBOutlet var hatersPickerView: UIPickerView!
     
     var delegate: AuthenticatePopUpDelegate?
+    var currentUser: String!
+    var currentRow: Int!
+    
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,7 +88,6 @@ class AuthenticatePopUpView: UIView, UIPickerViewDataSource,UIPickerViewDelegate
     }
     
     @IBAction func enterButtonPressed(sender: UIButton) {
-        hide()
         if let delegate = delegate {
             delegate.authenticatePopUpViewDidPressedButton(self)
         }
@@ -98,5 +103,13 @@ class AuthenticatePopUpView: UIView, UIPickerViewDataSource,UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return DataManager.sharedManager.users[row].name
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        print(row)
+        print(DataManager.sharedManager.users[row].name)
+        currentUser = DataManager.sharedManager.users[row].name
+        currentRow = row
     }
 }
