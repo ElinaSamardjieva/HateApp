@@ -25,10 +25,9 @@ class AuthenticatePopUpView: UIView, UIPickerViewDataSource,UIPickerViewDelegate
     
     var delegate: AuthenticatePopUpDelegate?
     var currentUser: String!
+    var currentPassword: String!
     var currentRow: Int!
-    
-
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -107,9 +106,8 @@ class AuthenticatePopUpView: UIView, UIPickerViewDataSource,UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        print(row)
         print(DataManager.sharedManager.users[row].name)
         currentUser = DataManager.sharedManager.users[row].name
-        currentRow = row
+        currentPassword = DataManager.sharedManager.users[row].password
     }
 }

@@ -111,32 +111,23 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
     
     func authenticatePopUpViewDidPressedButton(sender: AuthenticatePopUpView) {
         
-        
-        // HERE 
-        
         print(sender.passwordTextField.text)
         var usersPaswword = ""
         
-        if sender.currentUser == nil {
-            sender.currentUser = DataManager.sharedManager.users[0].name
-        }
-        
-        print(sender.currentUser)
-        
-        var myCurrentRow = sender.currentRow
-        
-        if myCurrentRow == nil {
+        if sender.currentPassword == nil {
             usersPaswword = DataManager.sharedManager.users[0].password!
+        } else {
+            print("password: \(sender.currentPassword)")
+            usersPaswword = sender.currentPassword
         }
-        
-        usersPaswword = DataManager.sharedManager.users[myCurrentRow].password!
-        print(usersPaswword)
         
         if sender.passwordTextField.text == usersPaswword {
-        let mapViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("HateViewController") as? HateViewController
-        self.navigationController?.pushViewController(mapViewControllerObj!, animated: true)
+            sender.hide()
+            let mapViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("HateViewController") as? HateViewController
+            self.navigationController?.pushViewController(mapViewControllerObj!, animated: true)
+            
         } else {
-           // sender.heightConstraint.constant = 30
+            sender.heightConstraint.constant = 60
             sender.alertMessageLabel.text = "The password does not match. Please, try again."
         }
     }
