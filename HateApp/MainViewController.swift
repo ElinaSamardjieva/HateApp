@@ -14,10 +14,17 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
     @IBOutlet var hateButton: UIButton!
     @IBOutlet var adminButton: UIButton!
     
+    @IBOutlet var initialDatePicker: UIDatePicker!
+    @IBOutlet var finalDatePicker: UIDatePicker!
+    
+    @IBOutlet var reportTableView: UITableView!
+    
+    var initialDate = NSDate()
+    var finalDate = NSDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        backgroundImageFillScren()
+        
         hateButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         hateButton.backgroundColor = UIColor(white: 0.5, alpha: 0.2)
         hateButton.layer.cornerRadius = 20
@@ -32,69 +39,24 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
         
         navigationController!.navigationBar.barTintColor = UIColor.blackColor()
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
+//        deleteAllData("Vote")
+//        deleteAllData("User")
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-                print("HERE")
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                let managedContext = appDelegate.managedObjectContext
         
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        
-                do {
-                    let results =
-                        try managedContext.executeFetchRequest(fetchRequest)
-        
-                    DataManager.sharedManager.users = results as! [User]
-        
-                    print("Users ---->")
-                    for user in DataManager.sharedManager.users {
-        
-                        print(user.name)
-                    }
-                } catch let error as NSError {
-                    print("Error")
-                }
+        fetchData()
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        print("HERE")
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let managedContext = appDelegate.managedObjectContext
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "User")
-//        
-//        do {
-//            let results =
-//                try managedContext.executeFetchRequest(fetchRequest)
-//            
-//            DataManager.sharedManager.users = results as! [User]
-//            
-//            print("Users ---->")
-//            for user in DataManager.sharedManager.users {
-//                
-//                print(user.name)
-//            }
-//        } catch let error as NSError {
-//            print("Error")
-//        }
-//    }
-    
-    func backgroundImageFillScren() {
-        let width = UIScreen.mainScreen().bounds.size.width
-        let height = UIScreen.mainScreen().bounds.size.height
-        
-        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
-        imageViewBackground.image = UIImage(named: "burningApple.jpeg")
-        
-        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        view.addSubview(imageViewBackground)
-        view.sendSubviewToBack(imageViewBackground)
+    func fetchData() {
+        DataManager.sharedManager.fetchUsers()
     }
+    
+    
+    // Actions
     
     @IBAction func hateButtonPressed(sender: UIButton) {
         let popUpView = AuthenticatePopUpView.init(frame: UIScreen.mainScreen().bounds)
@@ -129,6 +91,94 @@ class MainViewController: UIViewController, AuthenticatePopUpDelegate {
         } else {
             sender.heightConstraint.constant = 60
             sender.alertMessageLabel.text = "The password does not match. Please, try again."
+        }
+    }
+    
+    @IBAction func reportButtonPressed(sender: UIButton) {
+        
+        DataManager.sharedManager.prepareReport(initialDate, finalDate: NSDate())
+        
+        let mapViewControllerObj = self.storyboard?.instantiateViewControllerWithIdentifier("WinnerViewController") as? WinnerViewController
+        navigationController?.pushViewController(mapViewControllerObj!, animated: true)
+        
+      //  let initialDate = NSDate(timeInterval: 60*60*24*2*(-1), sinceDate: NSDate())
+//        print("Report given")
+//        
+//        DataManager.sharedManager.prepareReport(initialDate, finalDate: NSDate())
+//        
+//        var count = 0
+//        var colors = [UIColor.greenColor(), UIColor.blueColor(), UIColor.yellowColor(), UIColor.redColor(), UIColor.purpleColor()]
+//
+//        var sizes = 100
+//        var distance = 0
+//        var speed = 0.0
+//        
+//        while count <= DataManager.sharedManager.report.nominees.count - 1 {
+//            
+//            let winnerView = WinnerView.init(frame: UIScreen.mainScreen().bounds)
+//            
+//            winnerView.transform = CGAffineTransformMakeTranslation(0, -(CGRectGetHeight(winnerView.bounds)))
+//            
+//            UIView.animateWithDuration(speed, animations:  {
+//                winnerView.transform = CGAffineTransformIdentity
+//            }) { _ in
+//            }
+//            
+//            speed = speed + 1
+//            winnerView.topView.backgroundColor = colors[count]
+//            winnerView.heightConstraint.constant = CGFloat(sizes)
+//            winnerView.widthConstraint.constant = CGFloat(sizes)
+//            winnerView.bottomConstraint.constant = CGFloat(distance)
+//            
+//            if count == DataManager.sharedManager.report.nominees.count - 1 {
+//                winnerView.heightConstraint.constant = 400
+//                winnerView.widthConstraint.constant = 400
+//            }
+//
+//            winnerView.nameLabel.text = DataManager.sharedManager.report.nominees[count].name
+//            winnerView.pointsLabel.text = String(DataManager.sharedManager.report.nominees[count].points)
+//            winnerView.show()
+//            
+//            sizes += 5
+//            distance += 100
+//            count += 1
+//        }
+    }
+    
+    @IBAction func datePickerChanged(sender: UIDatePicker) {
+        
+        if sender == initialDatePicker {
+            initialDate = sender.date
+            print(initialDate)
+        } else if sender == finalDatePicker {
+            finalDate = sender.date
+            print(finalDate)
+        }
+    }
+    
+    
+    func deleteAllData(entity: String) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do
+        {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            for managedObject in results {
+                let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
+                managedContext.deleteObject(managedObjectData)
+            }
+        } catch let error as NSError {
+            print("Delete all data error")
+        }
+        
+        do {
+            try managedContext.save()
+            print("User deleted")
+        } catch let error as NSError {
+            print("Error: \(error.localizedDescription)")
         }
     }
 }

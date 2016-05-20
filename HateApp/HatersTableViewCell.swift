@@ -14,7 +14,8 @@ class HatersTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        backgroundColor = UIColor(white: 0.9, alpha: 0.4)
+        selectionStyle = .None
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

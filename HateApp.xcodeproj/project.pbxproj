@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C331C5801CD9F4E40050F6F1 /* HatersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331C57E1CD9F4E40050F6F1 /* HatersTableViewCell.swift */; };
 		C331C5811CD9F4E40050F6F1 /* HatersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C331C57F1CD9F4E40050F6F1 /* HatersTableViewCell.xib */; };
+		C337923D1CE33E9800129D19 /* VictimsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337923B1CE33E9800129D19 /* VictimsTableViewCell.swift */; };
+		C337923E1CE33E9800129D19 /* VictimsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C337923C1CE33E9800129D19 /* VictimsTableViewCell.xib */; };
+		C348109E1CEDA4F8000A1F80 /* WinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C348109D1CEDA4F8000A1F80 /* WinnerViewController.swift */; };
 		C34C4CDE1CCE6B36004438D8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C4CDD1CCE6B36004438D8 /* DataManager.swift */; };
 		C34C4CE01CCE6D1C004438D8 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34C4CDF1CCE6D1C004438D8 /* AdminViewController.swift */; };
 		C354B49C1CCA0B4F000E1C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B49B1CCA0B4F000E1C3E /* AppDelegate.swift */; };
@@ -17,21 +20,40 @@
 		C354B4A41CCA0B4F000E1C3E /* HateApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C354B4A21CCA0B4F000E1C3E /* HateApp.xcdatamodeld */; };
 		C354B4A61CCA0B4F000E1C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C354B4A51CCA0B4F000E1C3E /* Assets.xcassets */; };
 		C354B4A91CCA0B4F000E1C3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C354B4A71CCA0B4F000E1C3E /* LaunchScreen.storyboard */; };
-		C354B4B61CCA13A3000E1C3E /* ViewMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4B51CCA13A3000E1C3E /* ViewMethods.swift */; };
 		C354B4B91CCA1F79000E1C3E /* AuthenticatePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4B81CCA1F79000E1C3E /* AuthenticatePopUpView.swift */; };
 		C354B4BB1CCA1F9C000E1C3E /* AuthenticatePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C354B4BA1CCA1F9C000E1C3E /* AuthenticatePopUpView.xib */; };
 		C354B4BD1CCA2EAB000E1C3E /* HateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4BC1CCA2EAB000E1C3E /* HateViewController.swift */; };
-		C354B4C31CCA564A000E1C3E /* Vote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4BF1CCA564A000E1C3E /* Vote+CoreDataProperties.swift */; };
-		C354B4C41CCA564A000E1C3E /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4C01CCA564A000E1C3E /* Vote.swift */; };
-		C354B4C51CCA564A000E1C3E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4C11CCA564A000E1C3E /* User+CoreDataProperties.swift */; };
-		C354B4C61CCA564A000E1C3E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C354B4C21CCA564A000E1C3E /* User.swift */; };
+		C35C50131CEA188300FCA492 /* Vote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C500F1CEA188300FCA492 /* Vote+CoreDataProperties.swift */; };
+		C35C50141CEA188300FCA492 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C50101CEA188300FCA492 /* Vote.swift */; };
+		C35C50151CEA188300FCA492 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C50111CEA188300FCA492 /* User+CoreDataProperties.swift */; };
+		C35C50161CEA188300FCA492 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C50121CEA188300FCA492 /* User.swift */; };
 		C365BA0B1CCFB9C000D0B353 /* AddNewUserPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C365BA0A1CCFB9C000D0B353 /* AddNewUserPopUpView.swift */; };
 		C365BA0D1CCFB9D000D0B353 /* AddNewUserPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C365BA0C1CCFB9D000D0B353 /* AddNewUserPopUpView.xib */; };
+		C36D60231CEB6718005D0BBD /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D60221CEB6718005D0BBD /* WinnerView.swift */; };
+		C36D60251CEB6727005D0BBD /* WinnerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36D60241CEB6727005D0BBD /* WinnerView.xib */; };
+		C3F9C2551CE5F08300F4598F /* Nominee.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F9C2541CE5F08300F4598F /* Nominee.swift */; };
+		C3F9C2571CE603C000F4598F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F9C2561CE603C000F4598F /* Report.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C33BBF8B1CDB8C86009E16BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C331C57E1CD9F4E40050F6F1 /* HatersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HatersTableViewCell.swift; sourceTree = "<group>"; };
 		C331C57F1CD9F4E40050F6F1 /* HatersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HatersTableViewCell.xib; sourceTree = "<group>"; };
+		C337923B1CE33E9800129D19 /* VictimsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictimsTableViewCell.swift; sourceTree = "<group>"; };
+		C337923C1CE33E9800129D19 /* VictimsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VictimsTableViewCell.xib; sourceTree = "<group>"; };
+		C348109D1CEDA4F8000A1F80 /* WinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerViewController.swift; sourceTree = "<group>"; };
 		C34C4CDD1CCE6B36004438D8 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C34C4CDF1CCE6D1C004438D8 /* AdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		C354B4981CCA0B4E000E1C3E /* HateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,16 +64,19 @@
 		C354B4A51CCA0B4F000E1C3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C354B4A81CCA0B4F000E1C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C354B4AA1CCA0B4F000E1C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C354B4B51CCA13A3000E1C3E /* ViewMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMethods.swift; sourceTree = "<group>"; };
 		C354B4B81CCA1F79000E1C3E /* AuthenticatePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatePopUpView.swift; sourceTree = "<group>"; };
 		C354B4BA1CCA1F9C000E1C3E /* AuthenticatePopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthenticatePopUpView.xib; sourceTree = "<group>"; };
 		C354B4BC1CCA2EAB000E1C3E /* HateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HateViewController.swift; sourceTree = "<group>"; };
-		C354B4BF1CCA564A000E1C3E /* Vote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vote+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C354B4C01CCA564A000E1C3E /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
-		C354B4C11CCA564A000E1C3E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C354B4C21CCA564A000E1C3E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C35C500F1CEA188300FCA492 /* Vote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C35C50101CEA188300FCA492 /* Vote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		C35C50111CEA188300FCA492 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C35C50121CEA188300FCA492 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C365BA0A1CCFB9C000D0B353 /* AddNewUserPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewUserPopUpView.swift; sourceTree = "<group>"; };
 		C365BA0C1CCFB9D000D0B353 /* AddNewUserPopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewUserPopUpView.xib; sourceTree = "<group>"; };
+		C36D60221CEB6718005D0BBD /* WinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
+		C36D60241CEB6727005D0BBD /* WinnerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinnerView.xib; sourceTree = "<group>"; };
+		C3F9C2541CE5F08300F4598F /* Nominee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nominee.swift; sourceTree = "<group>"; };
+		C3F9C2561CE603C000F4598F /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +99,15 @@
 			name = HatersTableViewCell;
 			sourceTree = "<group>";
 		};
+		C337923A1CE33E7100129D19 /* VictimsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C337923B1CE33E9800129D19 /* VictimsTableViewCell.swift */,
+				C337923C1CE33E9800129D19 /* VictimsTableViewCell.xib */,
+			);
+			name = VictimsTableViewCell;
+			sourceTree = "<group>";
+		};
 		C354B48F1CCA0B4E000E1C3E = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +127,12 @@
 		C354B49A1CCA0B4E000E1C3E /* HateApp */ = {
 			isa = PBXGroup;
 			children = (
+				C3650E581CE08458002801DF /* Managers */,
+				C354B49F1CCA0B4F000E1C3E /* Main.storyboard */,
 				C354B4B41CCA138C000E1C3E /* Helper classes */,
 				C354B49B1CCA0B4F000E1C3E /* AppDelegate.swift */,
 				C354B4B01CCA0B5B000E1C3E /* Model */,
 				C354B4B11CCA0B60000E1C3E /* View */,
-				C331C57D1CD9F4BC0050F6F1 /* HatersTableViewCell */,
 				C354B4B21CCA0B65000E1C3E /* Controller */,
 				C354B4B31CCA0B7B000E1C3E /* Helpers */,
 			);
@@ -107,10 +142,10 @@
 		C354B4B01CCA0B5B000E1C3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C354B4BF1CCA564A000E1C3E /* Vote+CoreDataProperties.swift */,
-				C354B4C01CCA564A000E1C3E /* Vote.swift */,
-				C354B4C11CCA564A000E1C3E /* User+CoreDataProperties.swift */,
-				C354B4C21CCA564A000E1C3E /* User.swift */,
+				C35C500F1CEA188300FCA492 /* Vote+CoreDataProperties.swift */,
+				C35C50101CEA188300FCA492 /* Vote.swift */,
+				C35C50111CEA188300FCA492 /* User+CoreDataProperties.swift */,
+				C35C50121CEA188300FCA492 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -118,7 +153,9 @@
 		C354B4B11CCA0B60000E1C3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C354B49F1CCA0B4F000E1C3E /* Main.storyboard */,
+				C36D60201CEB66FF005D0BBD /* WinnerView */,
+				C337923A1CE33E7100129D19 /* VictimsTableViewCell */,
+				C331C57D1CD9F4BC0050F6F1 /* HatersTableViewCell */,
 				C354B4B71CCA1EFA000E1C3E /* AuthenticatePopUp */,
 				C365BA091CCFB97A00D0B353 /* AddNewUserPopUp */,
 			);
@@ -131,6 +168,7 @@
 				C354B49D1CCA0B4F000E1C3E /* MainViewController.swift */,
 				C354B4BC1CCA2EAB000E1C3E /* HateViewController.swift */,
 				C34C4CDF1CCE6D1C004438D8 /* AdminViewController.swift */,
+				C348109D1CEDA4F8000A1F80 /* WinnerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -149,8 +187,8 @@
 		C354B4B41CCA138C000E1C3E /* Helper classes */ = {
 			isa = PBXGroup;
 			children = (
-				C354B4B51CCA13A3000E1C3E /* ViewMethods.swift */,
-				C34C4CDD1CCE6B36004438D8 /* DataManager.swift */,
+				C3F9C2541CE5F08300F4598F /* Nominee.swift */,
+				C3F9C2561CE603C000F4598F /* Report.swift */,
 			);
 			name = "Helper classes";
 			sourceTree = "<group>";
@@ -164,6 +202,14 @@
 			name = AuthenticatePopUp;
 			sourceTree = "<group>";
 		};
+		C3650E581CE08458002801DF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				C34C4CDD1CCE6B36004438D8 /* DataManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		C365BA091CCFB97A00D0B353 /* AddNewUserPopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +217,15 @@
 				C365BA0C1CCFB9D000D0B353 /* AddNewUserPopUpView.xib */,
 			);
 			name = AddNewUserPopUp;
+			sourceTree = "<group>";
+		};
+		C36D60201CEB66FF005D0BBD /* WinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				C36D60221CEB6718005D0BBD /* WinnerView.swift */,
+				C36D60241CEB6727005D0BBD /* WinnerView.xib */,
+			);
+			name = WinnerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +238,7 @@
 				C354B4941CCA0B4E000E1C3E /* Sources */,
 				C354B4951CCA0B4E000E1C3E /* Frameworks */,
 				C354B4961CCA0B4E000E1C3E /* Resources */,
+				C33BBF8B1CDB8C86009E16BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +293,8 @@
 				C331C5811CD9F4E40050F6F1 /* HatersTableViewCell.xib in Resources */,
 				C354B4A61CCA0B4F000E1C3E /* Assets.xcassets in Resources */,
 				C354B4A11CCA0B4F000E1C3E /* Main.storyboard in Resources */,
+				C36D60251CEB6727005D0BBD /* WinnerView.xib in Resources */,
+				C337923E1CE33E9800129D19 /* VictimsTableViewCell.xib in Resources */,
 				C365BA0D1CCFB9D000D0B353 /* AddNewUserPopUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,17 +309,21 @@
 				C34C4CE01CCE6D1C004438D8 /* AdminViewController.swift in Sources */,
 				C354B4A41CCA0B4F000E1C3E /* HateApp.xcdatamodeld in Sources */,
 				C365BA0B1CCFB9C000D0B353 /* AddNewUserPopUpView.swift in Sources */,
+				C35C50141CEA188300FCA492 /* Vote.swift in Sources */,
+				C35C50161CEA188300FCA492 /* User.swift in Sources */,
+				C3F9C2571CE603C000F4598F /* Report.swift in Sources */,
 				C354B49E1CCA0B4F000E1C3E /* MainViewController.swift in Sources */,
-				C354B4C31CCA564A000E1C3E /* Vote+CoreDataProperties.swift in Sources */,
-				C354B4C41CCA564A000E1C3E /* Vote.swift in Sources */,
+				C3F9C2551CE5F08300F4598F /* Nominee.swift in Sources */,
 				C354B4BD1CCA2EAB000E1C3E /* HateViewController.swift in Sources */,
+				C36D60231CEB6718005D0BBD /* WinnerView.swift in Sources */,
+				C35C50151CEA188300FCA492 /* User+CoreDataProperties.swift in Sources */,
+				C348109E1CEDA4F8000A1F80 /* WinnerViewController.swift in Sources */,
+				C337923D1CE33E9800129D19 /* VictimsTableViewCell.swift in Sources */,
 				C354B49C1CCA0B4F000E1C3E /* AppDelegate.swift in Sources */,
-				C354B4B61CCA13A3000E1C3E /* ViewMethods.swift in Sources */,
 				C354B4B91CCA1F79000E1C3E /* AuthenticatePopUpView.swift in Sources */,
 				C331C5801CD9F4E40050F6F1 /* HatersTableViewCell.swift in Sources */,
 				C34C4CDE1CCE6B36004438D8 /* DataManager.swift in Sources */,
-				C354B4C61CCA564A000E1C3E /* User.swift in Sources */,
-				C354B4C51CCA564A000E1C3E /* User+CoreDataProperties.swift in Sources */,
+				C35C50131CEA188300FCA492 /* Vote+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HateApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = None.HateApp;
@@ -389,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HateApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = None.HateApp;

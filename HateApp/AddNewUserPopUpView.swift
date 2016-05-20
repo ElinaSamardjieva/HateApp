@@ -53,10 +53,10 @@ class AddNewUserPopUpView: UIView {
     
     func show() {
         // MARK: - Show the DatePicker
-        popUpView.transform = CGAffineTransformMakeTranslation(0, -(CGRectGetHeight(self.popUpView.bounds)))
         blurEffectView.layer.opacity = 0
         
-        
+        popUpView.transform = CGAffineTransformMakeTranslation(0, -(CGRectGetHeight(self.popUpView.bounds)))
+
         UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1, options: .CurveEaseOut, animations:  {
             self.popUpView.transform = CGAffineTransformIdentity
             self.blurEffectView.layer.opacity = 1

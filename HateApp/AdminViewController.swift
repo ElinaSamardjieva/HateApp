@@ -12,47 +12,27 @@ import CoreData
 class AdminViewController: UIViewController, UITableViewDataSource, AddNewUserPopUpViewDelegate {
 
     @IBOutlet var usersTableView: UITableView!
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.layoutIfNeeded()
-        usersTableView.dataSource = self
-        print("View did load")
-        usersTableView.registerNib(UINib(nibName: "HatersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        usersTableView.separatorStyle = .None
-    
-        backgroundImageFillScren()
-        
-//        deleteAllData("User")
+        configureTableView()
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        print("View will appear called")
-//
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let managedContext = appDelegate.managedObjectContext
-//        
-//        let fetchRequest = NSFetchRequest(entityName: "User")
-//        
-//        do {
-//            let results =
-//                try managedContext.executeFetchRequest(fetchRequest)
-//            
-//            DataManager.sharedManager.users = results as! [User]
-//            
-//           // print("Users ---->")
-////            for user in DataManager.sharedManager.users {
-////                
-////                print(user.name)
-////            }
-//        } catch let error as NSError {
-//            print("Error")
-//        }
-//    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
     
+    // MARK: - Data
+    
+    func fetchData() {
+        DataManager.sharedManager.fetchUsers()
+        users = DataManager.sharedManager.users
+        usersTableView.reloadData()
+    }
+    
+    // MARK: - Actions
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         let addPopUp = AddNewUserPopUpView.init(frame: UIScreen.mainScreen().bounds)
@@ -95,172 +75,46 @@ class AdminViewController: UIViewController, UITableViewDataSource, AddNewUserPo
     }
     
     func saveUser(name: String, password: String) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
-        let user = User(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-            user.setValue(name, forKey: "name")
-            user.setValue(password, forKey: "password")
-        
-            do {
-                try managedContext.save()
-                DataManager.sharedManager.users.append(user)
-
-                for user in DataManager.sharedManager.users {
-                    print("User ---- > \(user.name)")
-                }
-                
-            } catch let error as NSError {
-                print("Error")
-        }
+        DataManager.sharedManager.saveUser(name, password: password)
     }
     
-    // MARK: - TableViewDataSource
+    // MARK: - TableView
+    
+    func configureTableView() {
+        usersTableView.registerNib(UINib(nibName: "HatersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        usersTableView.dataSource = self
+        usersTableView.separatorStyle = .None
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+      //  return DataManager.sharedManager.visibleUsersArray.count
         return DataManager.sharedManager.users.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = usersTableView.dequeueReusableCellWithIdentifier("Cell") as! HatersTableViewCell!
+        let cell = usersTableView.dequeueReusableCellWithIdentifier("Cell") as! HatersTableViewCell!
+    
         
-        if cell ==  nil {
-            usersTableView.registerNib(UINib(nibName: "HatersTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-            cell = usersTableView.dequeueReusableCellWithIdentifier("Cell") as! HatersTableViewCell!
+       // if indexPath.row < DataManager.sharedManager.visibleUsersArray.count {
+        if indexPath.row < DataManager.sharedManager.users.count {
+        
+      //  cell.hatersNameLabel.text = DataManager.sharedManager.visibleUsersArray[indexPath.row].name
+            cell.hatersNameLabel.text = DataManager.sharedManager.users[indexPath.row].name
+            
         }
-        
-        cell.selectionStyle = .None
-        cell.backgroundColor = UIColor(white: 0.9, alpha: 0.4)
-        cell.hatersNameLabel.text = DataManager.sharedManager.users[indexPath.row].name
-        
         return cell
     }
     
+    // MARK: - Delete cell
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        
-        if editingStyle == .Delete {
-            
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                let managedContext = appDelegate.managedObjectContext
-                
-                let userFromArray = DataManager.sharedManager.users[indexPath.row]
-                DataManager.sharedManager.users.removeAtIndex(indexPath.row)
-                managedContext.deleteObject(userFromArray)
-                
-                do {
-                    try managedContext.save()
-                    print("User deleted")
-                    
-                } catch let error as NSError {
-                    print("Error")
+            if editingStyle == .Delete {
+             //   DataManager.sharedManager.deleteUser(DataManager.sharedManager.visibleUsersArray[indexPath.row], index: indexPath.row)
+                DataManager.sharedManager.deleteUser(DataManager.sharedManager.users[indexPath.row], index: indexPath.row)
             }
-                usersTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        
+        usersTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
-    
-    // MARK: - Delete data
-    
-//    func deleteAllData(entity: String) {
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let managedContext = appDelegate.managedObjectContext
-//        let fetchRequest = NSFetchRequest(entityName: entity)
-//        fetchRequest.returnsObjectsAsFaults = false
-//        
-//        do
-//        {
-//            let results = try managedContext.executeFetchRequest(fetchRequest)
-//            for managedObject in results
-//            {
-//                let managedObjectData: NSManagedObject = managedObject as! NSManagedObject
-//                managedContext.deleteObject(managedObjectData)
-//            }
-//        } catch let error as NSError {
-//            print("Error")
-//        }
-//    }
-    
-    // MARK: - Background Image
-    
-    func backgroundImageFillScren() {
-        let width = UIScreen.mainScreen().bounds.size.width
-        let height = UIScreen.mainScreen().bounds.size.height
-        
-        let imageViewBackground = UIImageView(frame: CGRectMake(0, 0, width, height))
-        imageViewBackground.image = UIImage(named: "adminApple")
-        
-        // you can change the content mode:
-        imageViewBackground.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        view.addSubview(imageViewBackground)
-        view.sendSubviewToBack(imageViewBackground)
-    }
-    
-//    func createAlert(message: String) {
-//        let alert = UIAlertController(title: "Try again", message: message, preferredStyle: .Alert)
-//        let doneAction = UIAlertAction(title: "Done", style: .Default, handler: { (action: UIAlertAction) -> Void in })
-//        alert.addAction(doneAction)
-//        presentViewController(alert, animated: true, completion: nil)
-//    }
-}
-
-
-
-
-//func removeUser(name: String) {
-//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//    let managedContext = appDelegate.managedObjectContext
-//    
-//    let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext)
-//    let user = User(entity: entity!, insertIntoManagedObjectContext: managedContext)
-//    
-//    
-//    print(users.count)
-//    for user in users {
-//        print(user.name)
-//    }
-//    
-//    let indexOfPerson = users.filter { $0.name == "Eli" }.first
-//    let index = users.indexOf(indexOfPerson!)
-//    
-//    users.removeAtIndex(index!)
-//    
-//    print(users.count)
-//    for user in users {
-//        print(user.name)
-//    }
-//}
-
-
-// let index = users.indexOf(indexOfPerson!)
-// users.removeAtIndex(index!)
-
-//func removeUser(name: String) {
-//    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//    let managedContext = appDelegate.managedObjectContext
-//    
-//    let fetchRequest = NSFetchRequest(entityName: "User")
-//    
-//    do {
-//        let results = try managedContext.executeFetchRequest(fetchRequest)
-//        users = results as! [User]
-//        
-//    } catch let error as NSError {
-//        print("Error")
-//    }
-//    
-//    let userFromArray = users.filter { $0.name == name }.first
-//    managedContext.deleteObject(userFromArray!)
-//    
-//    do {
-//        try managedContext.save()
-//        print("User deleted")
-//        
-//    } catch let error as NSError {
-//        print("Error")
-//    }
-//}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VictimsTableViewCell" customModule="HateApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enx-sb-NoK">
+                        <rect key="frame" x="18" y="11" width="72" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="nW8-47-IR4"/>
+                            <constraint firstAttribute="height" constant="21" id="wsk-1q-ELH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-Ok-Kjr">
+                        <rect key="frame" x="233" y="7" width="26" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="0Bg-BT-OKC"/>
+                            <constraint firstAttribute="height" constant="25" id="BfH-cC-j9N"/>
+                        </constraints>
+                        <state key="normal" image="oneunchecked"/>
+                        <connections>
+                            <action selector="onePointButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fi7-UD-agP"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfa-Tk-DPa">
+                        <rect key="frame" x="280" y="6" width="24" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="J8W-QG-Vgh"/>
+                            <constraint firstAttribute="width" constant="24" id="eQ8-F5-W1j"/>
+                        </constraints>
+                        <state key="normal" image="twounchecked"/>
+                        <connections>
+                            <action selector="twoPointsButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1Zd-GQ-Wn4"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vfa-Tk-DPa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="2Ei-HE-kM7"/>
+                    <constraint firstItem="Pql-Ok-Kjr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="N6H-bj-DHI"/>
+                    <constraint firstItem="vfa-Tk-DPa" firstAttribute="leading" secondItem="Pql-Ok-Kjr" secondAttribute="trailing" constant="21" id="SHa-jA-KPo"/>
+                    <constraint firstItem="vfa-Tk-DPa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-2.5" id="WgF-dy-rAQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vfa-Tk-DPa" secondAttribute="trailing" constant="8" id="d2b-sd-NLk"/>
+                    <constraint firstItem="enx-sb-NoK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="eQB-1X-afF"/>
+                    <constraint firstItem="Pql-Ok-Kjr" firstAttribute="leading" secondItem="enx-sb-NoK" secondAttribute="trailing" constant="173" id="h8K-bc-Zyt"/>
+                    <constraint firstItem="Pql-Ok-Kjr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-2" id="qMu-8I-ToR"/>
+                    <constraint firstItem="vfa-Tk-DPa" firstAttribute="leading" secondItem="Pql-Ok-Kjr" secondAttribute="trailing" constant="21" id="xvz-3L-g4Z"/>
+                    <constraint firstItem="enx-sb-NoK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ykD-QD-7ql"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="h8K-bc-Zyt"/>
+                        <exclude reference="xvz-3L-g4Z"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="onePointButton" destination="Pql-Ok-Kjr" id="v0j-UA-j4O"/>
+                <outlet property="twoPointsButton" destination="vfa-Tk-DPa" id="wH9-4B-0GC"/>
+                <outlet property="victimsNameLabel" destination="enx-sb-NoK" id="3EU-yr-Jd2"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="oneunchecked" width="60" height="64"/>
+        <image name="twounchecked" width="59" height="61"/>
+    </resources>
+</document>
